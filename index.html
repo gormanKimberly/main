@@ -1,0 +1,589 @@
+<html>
+
+<head>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+    integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js'
+    integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
+    integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+    crossorigin='anonymous'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+    crossorigin='anonymous'></script>
+  <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'
+    integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n'
+    crossorigin='anonymous'></script>
+  <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
+    integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo'
+    crossorigin='anonymous'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
+    integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6'
+    crossorigin='anonymous'></script>
+
+  <style>
+    .jumbotron {
+      background-color: #3a6097;
+      padding: 1.5%;
+    }
+
+    .topText {
+      font-size: 1.5em;
+      color: white;
+      padding-right: 2%;
+    }
+
+    .lead {
+      font-size: 1.2em;
+      font-weight: lighter;
+      font-style: italic;
+    }
+
+    .box {
+      height: 20vh;
+      background-color: black;
+      border: white 2px solid;
+    }
+
+    .prize {
+      background-color: green;
+    }
+
+    .flipped {
+      background-color: red;
+    }
+
+    .container1 {
+      width: 75%;
+      height: auto;
+      border: 1px solid rgb(224, 224, 224);
+      padding: 2%;
+      display: block;
+      overflow: auto;
+      margin: 0 auto;
+      background-color: whitesmoke;
+    }
+
+    #boxes {
+      padding: 1%;
+    }
+
+    .navbar {
+      padding: 1%;
+      background-color: #2d3d53;
+      color: white;
+      align-items: center;
+    }
+
+    .btn-secondary {
+      margin-right: 1%;
+    }
+
+    #msg {
+      color: white;
+    }
+
+    #quantity {
+      border: none;
+      padding: 5% 1.5% 5% 0%;
+    }
+
+    .dropdown {
+      margin-right: 1%;
+    }
+
+    .dropdown-menu {
+      padding: 0;
+    }
+
+    .divider {
+      border-bottom: 1px solid grey;
+    }
+
+    #gameStatsStyle {
+      width: 100%;
+      padding: 5% 1.5% 5%;
+    }
+
+    #gameHistBtn{
+      width: 100%;
+      padding: 5% 1.5% 5%;
+      background-color: whitesmoke;
+    
+    }
+
+    #gameHistBtn:hover {
+      background-color: rgb(49, 49, 49);
+      transition-duration: 0.80s;
+      color: whitesmoke;
+    }
+
+    #customGameBtn {
+      width: 100%;
+      text-align: center;
+      border: none;
+      background-color: grey;
+      padding: 5%;
+      color: whitesmoke
+    }
+
+    #customGameBtn:hover {
+      background-color: rgb(49, 49, 49);
+      transition-duration: 0.80s;
+      color: whitesmoke;
+    }
+
+    #restartGameBtn {
+      width: 100%;
+      text-align: center;
+      border: none;
+      background-color: rgb(49, 49, 49);
+      padding: 5%;
+      color: whitesmoke
+    }
+
+    #restartGameBtn:hover {
+      background-color: rgb(24, 23, 23);
+      transition-duration: 0.80s;
+      color: whitesmoke;
+    }
+
+    #logoutBtn {
+      width: 100%;
+      padding: 5%;
+      text-align: center;
+      border: none;
+      background-color:grey;
+      color: whitesmoke;
+    }
+
+    #logoutBtn:hover {
+      transition-duration: 0.80s;
+      background-color: rgb(24, 23, 23);
+      background-color: rgb(49, 49, 49);
+    }
+
+    footer {
+      width: 100%;
+      height: 15vh;
+      margin-top: 5%;
+      left: 0;
+      bottom: 0;
+      background-color: #1f3350;
+      color: #d9dcdf;
+      padding-top: 1%;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class='navbar navbar-expand-lg navbar-light'>
+
+    <button id='loginBtn' class='btn btn-secondary' role='button'>Login</button>
+    <button id='registerBtn' class='btn btn-secondary' role='button'>Register</button>
+
+    <div class='dropdown'>
+      <button id='settingsBtn' button class='btn btn-secondary dropdown-toggle' type='button'
+        data-toggle='dropdown'>Settings<span class='caret'></span></button>
+
+
+      <ul class='dropdown-menu'>
+        <li class='dropdown-header' style='text-align: center; background-color: grey; color: whitesmoke;'>Game History
+        </li>
+        <li>
+          <div id='gameStatsStyle'>Games Played:</div>
+        </li>
+        <li class='divider'></li>
+        <li>
+          <div id='gameStatsStyle' style='background-color: whitesmoke;'>Games Won:</div>
+        </li>
+        <li class='divider'></li>
+        <li>
+          <div id='gameStatsStyle'>Games Lost:</div>
+        </li>
+        <li class='divider'></li>
+        <div class='dropdown-toggle' id='gameHistBtn';'>Complete Game History <span class='caret'></span></div>
+
+        <li class='dropdown-header' style='text-align: center; background-color: grey; color: whitesmoke;'>Customize Game</li>
+        <li>
+          <input type='number' id='quantity' name='quantity' min='1' placeholder='Number of Boxes'
+            style='scroll-behavior: disable;'>
+        </li>
+        <li class='divider'></li>
+        <li>
+          <input type='number' id='quantity' name='quantity' min='1' placeholder='Number of Tries'
+            style='background-color: whitesmoke;'>
+        </li>
+        <li class='divider'></li>
+
+
+        <li class='dropdown-header' style='text-align: center;'>Ready to Play?</li>
+        <li><button id='customGameBtn' role='button'>Submit Changes</a></li>
+        <li><button id='restartGameBtn' role='button'>Restart Game</a></li>
+        <li><button id='logoutBtn' role='button''>Logout</button></li>
+    </ul>
+    
+  </div>
+   <p id=' msg'></p>
+
+  </nav>
+  <section class='jumbotron jumbotron-fluid text-white'>
+    <h1 class='display-6 text-white'>Treasure Hunt</h1>
+    <p class='lead'>Set out to find fame and fortune</p>
+  </section>
+  <div class='container1'>
+    <h4>Treasure Hunt</h4>
+    <p>
+      Set out to find fame and fortune in <i>Treasure Hunt</i>. In this simple click-to-win game, players must aim to
+      find the hidden treasure within the least amount of clicks. Registered users are given the opportunity to
+      increase or decrease the level of difficulty by altering the number of treasure spots or by limiting themselves to
+      a maximum number of tries, keep track of their highest and lowest scores, and whether they've lost or won.
+      This simple game is perfect for gamers of all ages and is a fantastic distraction from the dreary existence of
+      life for about 5 minutes.
+    </p>
+    <div id='boxes' class='row'></div>
+    <p>Guesses: <span id='guesses'>0</span></p>
+    <!-- <p>High score: <span id='highscore'>0</span></p> -->
+    <p id='error'></p>
+  </div>
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js'
+    integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
+    integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+    crossorigin='anonymous'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+    crossorigin='anonymous'></script>
+
+
+  <div id='loginDlg' class='modal' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header bg-dark text-light'>
+          <h5 class='modal-title'>Login</h5>
+          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        <div class='modal-body'>
+          <h4>Login</h4>
+          <form class='border border-primary p-3'>
+            <div class='form-group'>
+              <input type='text' class='form-control' id='email' name='email' placeholder='Email'>
+            </div>
+            <div class='form-group'>
+              <input type='password' class='form-control' id='password' name='password' placeholder='Password'>
+            </div>
+          </form>
+        </div>
+        <div class='modal-footer'>
+          <button id='confirmLoginBtn' type='button' class='btn btn-primary'>Login</button>
+          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='registerDlg' class='modal' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header bg-dark text-light'>
+          <h5 class='modal-title'>Register</h5>
+          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        <div class='modal-body'>
+          <h4>Register</h4>
+          <form class='border border-primary p-3'>
+            <div class='form-group'>
+              <input type='text' class='form-control' id='regEmail' name='regEmail' placeholder='Email'>
+            </div>
+            <div class='form-group'>
+              <input type='password' class='form-control' id='regPassword' name='regPassword' placeholder='Password'>
+            </div>
+          </form>
+        </div>
+        <div class='modal-footer'>
+          <button id='confirmRegisterBtn' type='button' class='btn btn-primary'>Register</button>
+          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div id='gameHistDlg' class='modal' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header bg-dark text-light'>
+          <h5 class='modal-title'>Game History</h5>
+          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>
+        <div class='modal-body'>
+          <h4>Game History</h4>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='confirm' class='modal' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header bg-dark text-light'>
+
+          <h5 class='modal-title'>Play Again?</h5>
+
+          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+
+        </div>
+
+        <div class='modal-body'>
+          <p>Would you like to play again?</p>
+        </div>
+
+        <div class='modal-footer'>
+          <button id='yes' type='button' class='btn btn-primary'>Yes</button>
+          <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      let game;
+      function initializeModel() {
+        game = {};
+        game.boxCount = 6;
+        game.boxes = {};
+        game.error = undefined;
+        game.guesses = 0;
+        game.currentGuess = undefined;
+        game.highScore = undefined;
+
+        for (var i = 1; i <= game.boxCount; i++) {
+          game.boxes[i] = { flipped: false };
+        }
+      }
+
+
+
+      function sendRequestGame(url) //1
+      {
+        let jqxhr = $.get(url);
+        jqxhr.done(function (json) {
+          if (json.error !== undefined) {
+            game.error = json.error;
+          }
+          else {
+            game.guesses = json.guesses;
+            game.gameOver = json.gameOver;
+          }
+          updateGameView();
+        });
+        jqxhr.fail(function (json) {
+          game.error = json.error;
+          updateGameView();
+        });
+      }
+
+
+
+      function updateGameView() {
+        $('#error').hide();
+
+        if (game.error !== undefined) {
+          $('#error').text('Error: ' + game.error);
+          $('#error').show();
+        }
+        else {
+          $('#boxes').empty();
+
+          if (game.gameOver == true && game.currentGuess !== undefined) {
+            game.boxes[game.currentGuess].winner = true;
+            $('#confirm').modal('show');
+          }
+
+          for (var i = 1; i <= game.boxCount; i++) {
+            let box = $("<div class='col-6 box'></div>");
+
+            if (game.boxes[i].winner) {
+              box.addClass('prize');
+            }
+            else if (game.boxes[i].flipped) {
+              box.addClass('flipped');
+            }
+
+
+            box.attr('value', i);
+            $('#boxes').append(box);
+          }
+
+          $('#guesses').text(game.guesses);
+          $('#highscore').text(game.guesses)
+        }
+      }
+
+
+
+      $(document).on('click', '.box', function () {
+        if (game.gameOver == true) return;
+
+        let box = $(this);
+        if (box.hasClass('flipped')) return;
+
+        let boxValue = box.attr('value');
+        game.currentGuess = boxValue;
+        game.boxes[parseInt(boxValue)].flipped = true;
+
+        sendRequestGame('game?guess=' + boxValue);
+      });
+
+
+
+      function startGame() {
+        initializeModel();
+        sendRequestGame('game?max=' + game.boxCount);
+      }
+
+
+      $('#yes').click(function () {
+        $('#confirm').modal('hide');
+        startGame();
+      });
+
+      startGame();
+    });
+
+    
+    $(document).ready(function () {
+      let model = {};
+      function initializeModel()
+      {
+          sendRequestProfiles('whoIsLoggedIn', function()
+          {
+
+          });
+      }
+      function sendRequestProfiles(url, callback) //2
+      {
+        var jqxhr = $.get(url);
+        jqxhr.done(function (json) {
+          model = json;
+          updateProfileView();
+          if (callback !== undefined)
+            callback();
+        })
+        jqxhr.fail(function (json) {
+          let error = JSON.stringify(json);
+          model.error = error;
+          updateProfileView();
+        })
+      }
+
+        $('#loginBtn').click(function () {
+        $('#password').val('');
+        $('#loginDlg').modal('show');
+      });
+
+        $('#registerBtn').click(function () {
+        $('#regEmail').val('');
+        $('#regPassword').val('');
+        $('#registerDlg').modal('show');
+      });
+
+      $('#logoutBtn').click(function () {
+        sendRequestProfiles('logout', function () {
+
+        });
+      });
+
+      // $('#restartGameBtn').click(function ()
+      // {
+      //   startGame();
+      // });
+
+  
+      $('#gameHistBtn').click(function (){
+       $('#gameHistDlg').modal('show');
+      });
+
+
+      $('#confirmLoginBtn').click(function () {
+        let email = $('#email').val().trim();
+        let password = $('#password').val().trim();
+
+        sendRequestProfiles('login?email=' + email + '&password=' + password, function () {
+
+        });
+        $('#loginDlg').modal('hide');
+      });
+
+      $('#confirmRegisterBtn').click(function () {
+        let email = $('#regEmail').val().trim();
+        let password = $('#regPassword').val().trim();
+        sendRequestProfiles('register?email=' + email + '&password=' + password, function () {
+
+        });
+
+        $('#registerDlg').modal('hide');
+      });
+
+      function updateProfileView() {
+        console.log(model);
+        if (model.result == undefined) {
+          $('#msg').text(model.error);
+
+          $('#registerBtn').show();
+          $('#logoutBtn').hide();
+          $('#loginBtn').show();
+          $('#settingsBtn').hide();
+          
+
+        }
+        else {
+
+          $('#registerBtn').hide();
+          $('#settingsBtn').show();
+          $('#loginBtn').hide();
+
+
+          if (model.result.email == undefined) {
+            $('#games').empty();
+            for (let i in model.result) {
+              $('#games').append(item);
+            }
+          }
+          // else {
+          //   $('#msg').text('Hello ' + model.result.email);
+          // }
+        }
+      }
+
+
+      // run...
+      initializeModel();
+    });
+  </script>
+
+  <footer>
+    <div class='footer-copyright text-center py-3'>
+      2021 Kimberly Gorman
+      <br>
+      CSCI-343-01 Final
+      <br>
+      Sophmore Status
+    </div>
+  </footer>
+</body>
+
+</html>
